@@ -1,7 +1,7 @@
 \documentclass[10.5pt,letterpaper]{article}
 
 % ---------- Packages ----------
-\usepackage[margin=0.85in,top=0.7in,bottom=0.7in]{geometry}
+\usepackage[margin=0.8in,top=0.6in,bottom=0.6in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{enumitem}
@@ -11,6 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{ragged2e}
+\usepackage{needspace}
 
 % ---------- Colors ----------
 \definecolor{hairline}{HTML}{999999}
@@ -28,9 +29,9 @@
 % ---------- Section formatting ----------
 \titleformat{\section}
   {\normalfont\large\scshape\bfseries}
-  {}{0em}{}
-  [\vspace{-0.6em}{\color{hairline}\titlerule[0.8pt]}]
-\titlespacing*{\section}{0pt}{1.1em}{0.55em}
+  {}{0em}{\needspace{4\baselineskip}}
+  [{\color{hairline}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{0.9em}{0.4em}
 
 \titleformat{\subsection}
   {\normalfont\bfseries}
