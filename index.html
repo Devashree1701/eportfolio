@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Devashree Gupta — Biomedical &amp; Electrical Engineer</title>
+<meta name="description" content="Portfolio of Devashree Gupta — dual-degree Biomedical and Electrical Engineer at Johns Hopkins, working across sensing, signal processing, embedded systems, and medical device design." />
+<style>
+  :root{
+    --paper:#EEF1F6;
+    --panel:#FFFFFF;
+    --scope:#0E1726;
+    --scope-grid:rgba(255,255,255,.06);
+    --ink:#141B26;
+    --muted:#4B5563;
+    --faint:#7A8699;
+    --hair:#D3DAE4;
+    --accent:#2B46E0;
+    --accent-soft:#E6EAFC;
+    --signal:#F2A516;
+    --mono:"Cascadia Code","Cascadia Mono","Consolas",ui-monospace,"SF Mono",Menlo,monospace;
+    --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --maxw:1120px;
+    --r:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--accent);color:#fff;}
+  :focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(238,241,246,.82);
+    backdrop-filter:saturate(1.3) blur(10px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:1.05rem;}
+  .brand .dot{color:var(--accent);}
+  .nav-links{display:flex;gap:26px;font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;}
+  .nav-links a{color:var(--muted);text-decoration:none;transition:color .18s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;
+    text-decoration:none;color:var(--accent);border:1px solid var(--accent);
+    padding:7px 13px;border-radius:8px;transition:all .18s;}
+  .nav-cta:hover{background:var(--accent);color:#fff;}
+  .menu-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  header{padding:76px 0 64px;}
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;}
+  .eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;}
+  .eyebrow::before{content:"// ";color:var(--faint);}
+  h1{
+    font-size:clamp(2.7rem,6vw,4.2rem);
+    line-height:1.02;
+    letter-spacing:-.035em;
+    font-weight:800;
+    margin:0 0 20px;
+    text-wrap:balance;
+  }
+  .hero-sub{font-size:1.22rem;color:var(--muted);max-width:46ch;margin:0 0 30px;line-height:1.5;}
+  .hero-sub strong{color:var(--ink);font-weight:600;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:.82rem;
+    background:var(--panel);border:1px solid var(--hair);
+    padding:9px 14px;border-radius:9px;text-decoration:none;color:var(--ink);
+    transition:border-color .18s,transform .18s;
+  }
+  .chip:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .chip svg{width:15px;height:15px;color:var(--accent);flex:none;}
+
+  /* ---------- scope panel ---------- */
+  .scope-card{
+    background:var(--scope);
+    border-radius:var(--r);
+    padding:18px;
+    box-shadow:0 24px 60px -28px rgba(20,27,38,.55);
+    border:1px solid #1d2838;
+  }
+  .scope-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:#8795a8;}
+  .scope-head .ch{display:flex;gap:16px;}
+  .scope-head .c1::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle;}
+  .scope-head .c2::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--signal);margin-right:6px;vertical-align:middle;}
+  canvas{display:block;width:100%;height:230px;border-radius:8px;}
+  .scope-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;}
+  .readout{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:8px 10px;}
+  .readout .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#6c7a8e;}
+  .readout .v{font-family:var(--mono);font-size:.92rem;color:#e7ecf3;font-variant-numeric:tabular-nums;}
+
+  /* ---------- stat strip ---------- */
+  .stats{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel);}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:28px;border-right:1px solid var(--hair);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-size:2.1rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+  .stat .num .unit{color:var(--accent);}
+  .stat .lbl{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:4px;}
+
+  /* ---------- sections ---------- */
+  section{padding:80px 0;}
+  .sec-head{margin-bottom:44px;max-width:60ch;}
+  .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);letter-spacing:-.03em;font-weight:800;margin:10px 0 0;text-wrap:balance;}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin:14px 0 0;}
+
+  /* focus areas */
+  .focus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .focus{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:26px;transition:transform .2s,box-shadow .2s;}
+  .focus:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(20,27,38,.4);}
+  .focus h3{margin:0 0 8px;font-size:1.18rem;letter-spacing:-.01em;}
+  .focus .idx{font-family:var(--mono);font-size:.74rem;color:var(--accent);letter-spacing:.06em;}
+  .focus p{margin:6px 0 0;color:var(--muted);font-size:.97rem;}
+
+  /* timeline */
+  .timeline{display:flex;flex-direction:column;gap:6px;}
+  .job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--hair);}
+  .job:first-child{border-top:none;}
+  .job-meta{font-family:var(--mono);font-size:.82rem;color:var(--muted);line-height:1.7;}
+  .job-meta .date{color:var(--accent);display:block;margin-bottom:6px;font-size:.78rem;letter-spacing:.03em;}
+  .job-meta .loc{color:var(--faint);display:block;font-size:.78rem;}
+  .job h3{margin:0 0 3px;font-size:1.28rem;letter-spacing:-.015em;}
+  .job .org{color:var(--ink);font-weight:600;margin:0 0 14px;}
+  .job .org .tag{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:3px 8px;border-radius:5px;margin-left:8px;vertical-align:middle;font-weight:500;}
+  .job ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .job li{position:relative;padding-left:20px;color:var(--muted);font-size:.98rem;}
+  .job li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.55;}
+  .job li strong{color:var(--ink);font-weight:600;}
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .proj{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .proj:hover{transform:translateY(-3px);box-shadow:0 20px 44px -26px rgba(20,27,38,.42);border-color:#c3ccda;}
+  .proj.feature{grid-column:1 / -1;background:linear-gradient(180deg,#fff, #fbfcfe);border-color:#c7cff0;}
+  .proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;}
+  .proj .cat{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);}
+  .proj .when{font-family:var(--mono);font-size:.72rem;color:var(--faint);white-space:nowrap;}
+  .proj h3{margin:0 0 10px;font-size:1.2rem;letter-spacing:-.01em;}
+  .proj.feature h3{font-size:1.5rem;}
+  .proj p{margin:0 0 12px;color:var(--muted);font-size:.96rem;}
+  .proj .badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.72rem;color:var(--signal-dark,#9a6a07);background:#fdf3df;border:1px solid #f1dfb3;padding:5px 10px;border-radius:7px;align-self:flex-start;margin-bottom:12px;}
+  .proj .stack{margin-top:auto;display:flex;flex-wrap:wrap;gap:7px;padding-top:6px;}
+  .proj .stack span{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--paper);border:1px solid var(--hair);padding:4px 9px;border-radius:6px;}
+
+  /* skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .skillset{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:24px;}
+  .skillset h3{font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:0 0 16px;font-weight:600;}
+  .skillset h3::before{content:"// ";color:var(--faint);}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tags span{font-size:.86rem;background:var(--paper);border:1px solid var(--hair);padding:6px 11px;border-radius:7px;transition:border-color .15s,color .15s;}
+  .tags span:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* service */
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .svc{background:var(--panel);border:1px solid var(--hair);border-radius:var(--r);padding:24px;}
+  .svc .role{font-weight:700;font-size:1.05rem;margin:0 0 3px;letter-spacing:-.01em;}
+  .svc .where{font-family:var(--mono);font-size:.76rem;color:var(--accent);margin:0 0 10px;}
+  .svc p{margin:0;color:var(--muted);font-size:.94rem;}
+
+  /* contact */
+  .contact{background:var(--scope);color:#e7ecf3;border-radius:22px;padding:60px;text-align:center;position:relative;overflow:hidden;}
+  .contact h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em;margin:0 0 14px;color:#fff;text-wrap:balance;}
+  .contact p{color:#9aa7bb;max-width:52ch;margin:0 auto 30px;font-size:1.08rem;}
+  .contact-chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+  .contact .chip{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#e7ecf3;}
+  .contact .chip:hover{border-color:var(--signal);transform:translateY(-2px);}
+  .contact .chip svg{color:var(--signal);}
+
+  footer{padding:40px 0 60px;text-align:center;color:var(--faint);font-family:var(--mono);font-size:.78rem;letter-spacing:.03em;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:38px;}
+    .stats-in{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .focus-grid,.proj-grid,.skills-grid,.service-grid{grid-template-columns:1fr;}
+    .job{grid-template-columns:1fr;gap:12px;}
+    .nav-links{display:none;}
+    .contact{padding:44px 24px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .chip,.focus,.proj{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <span class="brand">Devashree Gupta<span class="dot">.</span></span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#service">Service</a>
+    </div>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Biomedical &amp; Electrical Engineer</p>
+      <h1>Engineering at the edge of signal and system.</h1>
+      <p class="hero-sub">Dual-degree engineer at <strong>Johns Hopkins</strong> building across the full stack of a medical device — from the <strong>sensor silicon</strong> and <strong>embedded firmware</strong> to the <strong>signal processing</strong> that makes the measurement trustworthy.</p>
+      <div class="contact-row">
+        <a class="chip" href="mailto:dgupta16@jh.edu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          dgupta16@jh.edu
+        </a>
+        <a class="chip" href="tel:+14433256025">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          443-325-6025
+        </a>
+        <a class="chip" href="https://linkedin.com/in/devashreegupta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.2h4.5V24H.2zM8.3 8.2h4.3v2.2h.06c.6-1.1 2.06-2.26 4.24-2.26 4.54 0 5.38 2.98 5.38 6.86V24h-4.5v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.68 1.82-2.68 3.7V24H8.3z"/></svg>
+          in/devashreegupta
+        </a>
+      </div>
+    </div>
+
+    <div class="scope-card" aria-hidden="true">
+      <div class="scope-head">
+        <span>DG&nbsp;//&nbsp;SCOPE</span>
+        <span class="ch"><span class="c1">CH1</span><span class="c2">CH2</span></span>
+      </div>
+      <canvas id="scope" width="520" height="230"></canvas>
+      <div class="scope-foot">
+        <div class="readout"><div class="k">Domains</div><div class="v">BME · EE</div></div>
+        <div class="readout"><div class="k">GPA</div><div class="v">3.68</div></div>
+        <div class="readout"><div class="k">Grad</div><div class="v">May 2027</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap stats-in">
+    <div class="stat"><div class="num">3<span class="unit">×</span></div><div class="lbl">Industry internships</div></div>
+    <div class="stat"><div class="num">1<span class="unit"> patent</span></div><div class="lbl">Provisional, filed as lead</div></div>
+    <div class="stat"><div class="num">88<span class="unit">%</span></div><div class="lbl">RF-classifier accuracy</div></div>
+    <div class="stat"><div class="num">40<span class="unit">%</span></div><div class="lbl">SNR improvement, drone RF</div></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">About</p>
+      <h2>I design the whole measurement chain, not just one link in it.</h2>
+      <p>I'm pursuing a B.S. in Biomedical Engineering and a B.S. in Electrical Engineering at Johns Hopkins (May 2027). My work keeps returning to one question: <em>can you trust what the device just told you?</em> Answering it has taken me from characterizing sensor silicon on a surgical generator at Medtronic, to validating blood-pump performance at Johnson &amp; Johnson, to training signal-processing models that pull a drone's RF signature out of noise. I'm now looking toward graduate study in electrical engineering — deepening the circuits, signal processing, and embedded systems that sit under every reliable instrument.</p>
+    </div>
+    <div class="focus-grid">
+      <div class="focus reveal"><span class="idx">01</span><h3>Sensing &amp; Characterization</h3><p>Voltage/current sensing, gain &amp; phase calibration, automated bench sweeps across load, PWM, and harmonics — turning raw measurement into production-ready baselines.</p></div>
+      <div class="focus reveal"><span class="idx">02</span><h3>Circuits &amp; Embedded Systems</h3><p>Analog and digital design from LTSpice and KiCAD PCBs to CMOS layout in Cadence Virtuoso, FSM design in Verilog, and Arduino-based control systems.</p></div>
+      <div class="focus reveal"><span class="idx">03</span><h3>Signal Processing &amp; ML</h3><p>FFT, wavelet transforms, denoising, and CNN classifiers — improving SNR and detection reliability on real RF and biomedical data.</p></div>
+      <div class="focus reveal"><span class="idx">04</span><h3>Medical Device Design &amp; V&amp;V</h3><p>Verification &amp; validation planning, test-method validation, and fixture design against FDA and ISO requirements, from prototype to IDE support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Experience</p>
+      <h2>Where the work has taken me.</h2>
+      <p>Four countries, three medical-device teams, and one signal-processing lab — each a different layer of the same system.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="job reveal">
+        <div class="job-meta"><span class="date">Jun 2026 – Aug 2026</span><span class="loc">Lafayette, CO</span></div>
+        <div>
+          <h3>Sensor Hardware Engineering Intern</h3>
+          <p class="org">Medtronic <span class="tag">Hardware</span></p>
+          <ul>
+            <li>Characterized <strong>voltage and current sensing</strong> across the full operating range of a next-gen surgical generator.</li>
+            <li>Automated the complete characterization loop in <strong>Python</strong>, sweeping loads, PWM drive modes, and harmonics on a self-built bench mount.</li>
+            <li>Defined sensor gain and phase values from characterized data, delivering <strong>calibration baselines used in production firmware</strong>.</li>
+            <li>Root-caused discrepancies between external probe and onboard measurements to <strong>unaccounted parasitic capacitance</strong> in the traces.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-meta"><span class="date">Jan 2026 – Jun 2026</span><span class="loc">Baltimore, MD</span></div>
+        <div>
+          <h3>Product Development Engineering Intern</h3>
+          <p class="org">Johnson &amp; Johnson MedTech <span class="tag">V&amp;V</span></p>
+          <ul>
+            <li>Built an end-to-end <strong>cavitation test protocol</strong> for blood-pump performance, enabling repeatable compliance testing across builds.</li>
+            <li>Designed a <strong>high-speed camera setup</strong> to capture cavitation formation over the impeller inlet.</li>
+            <li>Investigated de-airing methods to prevent gas embolism, mapping where air localized across operating conditions to inform next-gen pump design.</li>
+            <li>Drafted and executed <strong>Test Method Validation</strong> protocols supporting an IDE submission, using Minitab and a Keyence IM.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-meta"><span class="date">Jul 2025 – Jun 2026</span><span class="loc">Baltimore, MD</span></div>
+        <div>
+          <h3>Research Assistant, Engineering</h3>
+          <p class="org">Dept. of Biomedical Engineering, Johns Hopkins <span class="tag">Embedded</span></p>
+          <ul>
+            <li>Designed and built <strong>surveillance traps</strong> for mosquito attraction, capture, powder-marking, and release.</li>
+            <li>Designed a <strong>relay control PCB in KiCAD</strong> and an Arduino-based embedded system for automated nightly operation.</li>
+            <li>Isolated repeated field failures of the visual system to insufficient illumination and re-designed the lighting for better image quality.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-meta"><span class="date">May 2025 – Aug 2025</span><span class="loc">Madrid, Spain</span></div>
+        <div>
+          <h3>Signal Processing Engineering Intern</h3>
+          <p class="org">Comillas Pontifical University <span class="tag">DSP / ML</span></p>
+          <ul>
+            <li>Denoised raw satellite drone data and designed <strong>wavelet transforms</strong> to preprocess RF signatures.</li>
+            <li>Developed a <strong>CNN reaching 88% accuracy</strong> classifying radio-frequency signatures from drones.</li>
+            <li>Applied FFT, wavelet transforms, and filtering to <strong>improve SNR by 40%</strong> and enhance detection reliability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-meta"><span class="date">Jul 2024 – Sep 2024</span><span class="loc">Bangalore, India</span></div>
+        <div>
+          <h3>Data Science Intern</h3>
+          <p class="org">Brain Value Ltd <span class="tag">Data</span></p>
+          <ul>
+            <li>Processed and analyzed <strong>biomarker and clinical-trial datasets</strong> with machine-learning methods, producing reports and visualizations of biomarker relationships.</li>
+            <li>Applied regression, clustering, and predictive modeling using <strong>scikit-learn</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Selected Projects</p>
+      <h2>Things I've designed, built, and verified.</h2>
+      <p>From a patent-pending surgical device down to a single CMOS pixel array — the span is the point.</p>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj feature reveal">
+        <div class="proj-top"><span class="cat">Medical Device · Prototyping Lead</span><span class="when">Jan 2025 – Present</span></div>
+        <h3>Multi-Port Airway Adaptor</h3>
+        <span class="badge">★ Provisional patent filed</span>
+        <p>An airway adaptor for interventional pulmonologists that keeps visualization unobstructed during multi-tool endotracheal intubation — enabling early detection of pulmonary hemorrhage. I modeled the port assembly in SolidWorks, designing the clamping and sealing mechanisms, and fabricated iterations via resin 3D printing with cast sealing elements. The need was grounded in a review of <strong>500+ clinical studies</strong> and OR shadowing of pulmonologists.</p>
+        <div class="stack"><span>SolidWorks</span><span>Resin 3D Printing</span><span>Sealing Design</span><span>Needs Assessment</span></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top"><span class="cat">Medical Device · V&amp;V Lead</span><span class="when">Jan 2024 – Aug 2024</span></div>
+        <h3>Transperineal Biopsy Collection System</h3>
+        <p>Led the V&amp;V plan for a prostate-biopsy system, building test fixtures to characterize needle-firing velocity with <strong>LVDT sensors</strong> — the verification method for the mechanism's core requirement. Delivered a full working prototype designed against FDA &amp; ISO requirements.</p>
+        <div class="stack"><span>LVDT</span><span>Test Fixtures</span><span>FDA / ISO</span><span>Prototyping</span></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top"><span class="cat">VLSI · IC Design</span><span class="when">Feb 2025 – May 2025</span></div>
+        <h3>CMOS Photosensor</h3>
+        <p>A 2.5 mm × 2.5 mm CMOS image sensor laid out in <strong>Cadence Virtuoso</strong>, integrating 3-transistor active-pixel sensors with photodiodes, row shift registers, and column-scanning logic — with full DRC/LVS verification passing.</p>
+        <div class="stack"><span>Cadence Virtuoso</span><span>3T APS</span><span>DRC / LVS</span></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top"><span class="cat">Digital Logic · FSM</span><span class="when">Feb 2025 – May 2025</span></div>
+        <h3>Password-Encrypted Digital Keypad</h3>
+        <p>A 7-digit keypad using a <strong>Moore FSM</strong> with one-hot encoding across 8 states for sequential passcode validation. Built in hardware with D-flip-flops, logic gates, and a clock circuit — pull-down resistors resolved current leakage, LEDs gave user feedback.</p>
+        <div class="stack"><span>Moore FSM</span><span>One-Hot</span><span>D Flip-Flops</span></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top"><span class="cat">Analog · Signal Processing</span><span class="when">Oct 2024 – Dec 2024</span></div>
+        <h3>LED Music Sync Circuit</h3>
+        <p>A circuit synchronizing LEDs to audio frequency using an electret mic, breadboarded to unit-test the amplification and filtering stages — with frequency response verified and optimized in <strong>LTSpice</strong>.</p>
+        <div class="stack"><span>LTSpice</span><span>Analog Filters</span><span>Electret Mic</span></div>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-top"><span class="cat">Computational Biology</span><span class="when">Feb 2024 – Apr 2024</span></div>
+        <h3>BRAF V600E Mutation Study</h3>
+        <p>Analyzed the BRAF V600E oncogene's impact on the MAPK/ERK pathway, quantifying cellular metrics in <strong>CellProfiler</strong> and building heatmaps and statistics in <strong>MATLAB</strong> — showing significantly higher ERK activity and smaller nuclei in oncogenic vs. wild-type populations.</p>
+        <div class="stack"><span>CellProfiler</span><span>MATLAB</span><span>Statistical Analysis</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Toolkit</p>
+      <h2>What I build with.</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skillset reveal">
+        <h3>Programming &amp; Data</h3>
+        <div class="tags">
+          <span>Python</span><span>NumPy</span><span>SciPy</span><span>pandas</span><span>scikit-learn</span><span>C / C++</span><span>MATLAB</span><span>LabVIEW</span><span>NI DAQ</span><span>SQL</span><span>Git</span><span>Minitab</span>
+        </div>
+      </div>
+      <div class="skillset reveal">
+        <h3>Circuits &amp; Embedded</h3>
+        <div class="tags">
+          <span>KiCAD</span><span>LTSpice</span><span>Cadence Virtuoso</span><span>Verilog</span><span>Arduino</span><span>Analog Design</span><span>FSM / Digital Logic</span><span>PCB Design</span>
+        </div>
+      </div>
+      <div class="skillset reveal">
+        <h3>CAD &amp; Prototyping</h3>
+        <div class="tags">
+          <span>SolidWorks</span><span>FEA Simulation</span><span>3D Printing (SLA/FDM)</span><span>CNC</span><span>Lathe</span><span>Mill</span><span>Welding</span><span>Laser Cutting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Leadership &amp; Service</p>
+      <h2>Teaching, mentoring, and showing up.</h2>
+      <p>The engineering matters more when it's shared — in classrooms, clinics, and community.</p>
+    </div>
+    <div class="service-grid">
+      <div class="svc reveal">
+        <p class="role">Physics Learning Assistant</p>
+        <p class="where">Johns Hopkins · Jan 2025 – Dec 2025</p>
+        <p>Led group discussion and problem-solving for electricity &amp; magnetism courses, partnering with faculty and TAs to improve student learning.</p>
+      </div>
+      <div class="svc reveal">
+        <p class="role">Teaching Assistant &amp; First-Year Mentor</p>
+        <p class="where">Johns Hopkins · Aug 2024 – Dec 2025</p>
+        <p>TA for the Design Cornerstone first-year seminar; mentored incoming students through orientation, academics, and campus resources.</p>
+      </div>
+      <div class="svc reveal">
+        <p class="role">Hopkins Community Connection Advocate</p>
+        <p class="where">JH Outpatient Center · Jan 2024 – May 2025</p>
+        <p>Helped underserved patients and families overcome barriers to social determinants of health, supporting holistic care.</p>
+      </div>
+      <div class="svc reveal">
+        <p class="role">Professional Development &amp; Fundraising Chair</p>
+        <p class="where">AKDPhi Sorority</p>
+        <p>Hosted resume workshops, networking, and headshot events; raised <strong>$3,000</strong> for breast cancer awareness. Also volunteered with Believe in Art, crafting with dementia patients at Keswick Multi-Care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-bottom:40px;">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>Let's build something measurable.</h2>
+      <p>Open to graduate research opportunities and engineering roles in sensing, embedded systems, signal processing, and medical devices.</p>
+      <div class="contact-chips">
+        <a class="chip" href="mailto:dgupta16@jh.edu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          dgupta16@jh.edu
+        </a>
+        <a class="chip" href="tel:+14433256025">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          443-325-6025
+        </a>
+        <a class="chip" href="https://linkedin.com/in/devashreegupta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.2h4.5V24H.2zM8.3 8.2h4.3v2.2h.06c.6-1.1 2.06-2.26 4.24-2.26 4.54 0 5.38 2.98 5.38 6.86V24h-4.5v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.68 1.82-2.68 3.7V24H8.3z"/></svg>
+          in/devashreegupta
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Devashree Gupta · Johns Hopkins University · BME + EE · Designed &amp; built 2026</div>
+</footer>
+
+<script>
+(function(){
+  // ---- oscilloscope hero animation ----
+  var canvas = document.getElementById('scope');
+  if(canvas){
+    var ctx = canvas.getContext('2d');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      var ratio = window.devicePixelRatio || 1;
+      var rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * ratio;
+      canvas.height = rect.height * ratio;
+      ctx.setTransform(ratio,0,0,ratio,0,0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function grid(w,h){
+      ctx.strokeStyle = 'rgba(255,255,255,0.055)';
+      ctx.lineWidth = 1;
+      var step = w/12;
+      for(var x=step; x<w; x+=step){ ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+      step = h/6;
+      for(var y=step; y<h; y+=step){ ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+      // center axis
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke();
+    }
+
+    function trace(w,h,color,phase,freq,amp,glow){
+      ctx.beginPath();
+      for(var x=0; x<=w; x+=2){
+        var t = x/w;
+        // a composite "characterization sweep": carrier + harmonic, amplitude-swept
+        var env = amp * (0.55 + 0.45*Math.sin(t*Math.PI));
+        var y = h/2
+          - env*Math.sin(t*freq*Math.PI*2 + phase)*h*0.17
+          - env*0.35*Math.sin(t*freq*2*Math.PI*2 + phase*1.4)*h*0.17;
+        if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = glow;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    function draw(phase){
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      ctx.clearRect(0,0,w,h);
+      grid(w,h);
+      trace(w,h,'#2B46E0', phase, 3, 1, 10);
+      trace(w,h,'#F2A516', phase*0.7 + 1.1, 5, 0.7, 8);
+    }
+
+    if(reduce){
+      draw(0.6);
+    } else {
+      var ph = 0;
+      (function loop(){
+        ph += 0.03;
+        draw(ph);
+        requestAnimationFrame(loop);
+      })();
+    }
+  }
+
+  // ---- scroll reveal ----
+  var reduceM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if(reduceM || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>

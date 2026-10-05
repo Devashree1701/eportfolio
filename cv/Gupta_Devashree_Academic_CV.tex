@@ -1,0 +1,223 @@
+\documentclass[10.5pt,letterpaper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=0.85in,top=0.7in,bottom=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+% ---------- Colors ----------
+\definecolor{hairline}{HTML}{999999}
+\definecolor{linkcol}{HTML}{14365B}
+
+% ---------- Hyperlinks ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkcol,
+  urlcolor=linkcol,
+  pdftitle={Devashree Gupta - Academic CV},
+  pdfauthor={Devashree Gupta}
+}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\normalfont\large\scshape\bfseries}
+  {}{0em}{}
+  [\vspace{-0.6em}{\color{hairline}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{1.1em}{0.55em}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.6em}{0.15em}
+
+% ---------- Lists ----------
+\setlist[itemize]{
+  leftmargin=1.1em,
+  itemsep=1pt,
+  parsep=0pt,
+  topsep=2pt,
+  label=\textbullet
+}
+
+% ---------- Header / Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\color{hairline} Devashree Gupta \textbullet\ Academic CV \textbullet\ Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\usepackage{lastpage}
+
+% ---------- Custom commands ----------
+% Entry with title/org on one line, location/dates on the right
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1} \hfill \textbf{#3}\\
+  \noindent\textit{#2} \hfill \textit{#4}\\[-0.15em]
+}
+
+\newcommand{\role}[2]{%
+  \noindent\textbf{#1} \hfill \textit{#2}\\[-0.15em]
+}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\Huge \textbf{Devashree Gupta}}\\[0.45em]
+  {\small
+    \href{mailto:dgupta16@jh.edu}{dgupta16@jh.edu} \ $\vert$ \
+    443-325-6025 \ $\vert$ \
+    \href{https://linkedin.com/in/devashreegupta}{linkedin.com/in/devashreegupta} \ $\vert$ \
+    Baltimore, MD
+  }
+\end{center}
+\vspace{-0.3em}
+{\color{hairline}\hrule height 0.8pt}
+\vspace{0.6em}
+
+% ================= RESEARCH INTERESTS =================
+\section*{Research Interests}
+\vspace{-0.3em}
+Sensor characterization and calibration; analog and mixed-signal circuit design; embedded systems; signal processing for biomedical and RF applications; verification and validation of medical devices.
+
+% ================= EDUCATION =================
+\section{Education}
+\entry{Johns Hopkins University}{B.S., Biomedical Engineering \& B.S., Electrical Engineering (Dual Degree)}{Baltimore, MD}{Aug. 2023 -- May 2027 (Expected)}
+Cumulative GPA: 3.68\\
+\textit{Relevant Coursework:} Control Systems, Nonlinear Dynamics, FPGA Programming, Microfabrication Lab, Biological Models and Simulations, Digital Signal Processing, VLSI, Advanced Electronics Design
+
+% ================= RESEARCH EXPERIENCE =================
+\section{Research Experience}
+
+\role{Research Assistant, Engineering}{July 2025 -- June 2026}
+\textit{Department of Biomedical Engineering, Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\begin{itemize}
+  \item Designed and built surveillance traps for mosquito attraction, capture, powder marking, and release.
+  \item Designed a relay control PCB in KiCAD and developed an Arduino-based embedded system for automated nightly operation.
+  \item Isolated repeated field failures of the trap visual system to insufficient illumination and re-designed lighting to improve image quality.
+\end{itemize}
+
+\role{Signal Processing Engineering Intern}{May 2025 -- Aug. 2025}
+\textit{Comillas Pontifical University} \hfill \textit{Madrid, Spain}
+\begin{itemize}
+  \item Denoised raw satellite drone data and designed wavelet transforms to preprocess drone RF signatures.
+  \item Developed a convolutional neural network achieving 88\% accuracy classifying radio frequency signatures from drones.
+  \item Applied FFT, wavelet transforms, and filtering to improve SNR by 40\%, enhancing detection reliability.
+\end{itemize}
+
+\role{Data Science Intern}{July 2024 -- Sept. 2024}
+\textit{Brain Value Ltd.} \hfill \textit{Bangalore, India}
+\begin{itemize}
+  \item Collected, processed, and analyzed biomarker and clinical trial datasets using machine learning methods; prepared reports and visualizations to characterize biomarker relationships.
+  \item Processed clinical trial data, applying regression analysis, clustering, and predictive modeling using scikit-learn.
+\end{itemize}
+
+% ================= INDUSTRY EXPERIENCE =================
+\section{Industry Experience}
+
+\role{Sensor Hardware Engineering Intern}{June 2026 -- Aug. 2026}
+\textit{Medtronic} \hfill \textit{Lafayette, CO}
+\begin{itemize}
+  \item Characterized voltage and current sensing across the full operating range of a next-generation surgical generator.
+  \item Automated the full characterization loop in Python, sweeping loads, PWM drive modes, and harmonics on a self-built bench mount.
+  \item Defined sensor gain and phase values from characterized data, delivering calibration baselines used in production firmware.
+  \item Root-caused discrepancies between external probe and onboard measurements to unaccounted parasitic capacitance of traces.
+\end{itemize}
+
+\role{Product Development Engineering Intern}{Jan. 2026 -- June 2026}
+\textit{Johnson \& Johnson MedTech} \hfill \textit{Baltimore, MD}
+\begin{itemize}
+  \item Built an end-to-end cavitation test protocol for blood pump performance, enabling repeatable compliance testing across builds.
+  \item Designed and built a high-speed camera setup to detect cavitation formation over the impeller inlet.
+  \item Investigated de-airing methods for blood pumps to prevent gas embolism, identifying air localization across operating conditions to support next-generation design.
+  \item Drafted and executed Test Method Validation protocols and feasibility studies of critical components supporting an IDE submission, utilizing Minitab and a Keyence IM.
+\end{itemize}
+
+% ================= PATENTS =================
+\section{Patents \& Intellectual Property}
+\role{Multi-Port Airway Adaptor --- Provisional Patent Filed}{Jan. 2025 -- Present}
+\begin{itemize}
+  \item Prototyping Lead for an airway adaptor enabling unobstructed visualization through multi-tool use during endotracheal intubation, supporting early detection of pulmonary hemorrhage by interventional pulmonologists.
+  \item Modeled the port assembly in SolidWorks, designing clamping and sealing mechanisms; fabricated iterations via resin 3D printing with cast sealing elements.
+  \item Conducted a needs assessment through review of 500+ clinical studies and operating-room shadowing of pulmonologists to analyze current device limitations.
+\end{itemize}
+
+% ================= PROJECTS =================
+\section{Independent Research \& Design Projects}
+
+\role{Verification \& Validation Lead --- Transperineal Biopsy Collection System}{Jan. 2024 -- Aug. 2024}
+\begin{itemize}
+  \item Led the design of the V\&V plan for a new transperineal biopsy collection system to improve prostate cancer patient diagnosis.
+  \item Designed and built test fixtures to characterize needle firing velocity using LVDT sensors, establishing the verification method for the mechanism's core design requirement.
+  \item Completed a full working biopsy-gun prototype designed against FDA and ISO requirements; validated through a range of low-to-high fidelity testing methods.
+\end{itemize}
+
+\role{CMOS Photosensor}{Feb. 2025 -- May 2025}
+\begin{itemize}
+  \item Developed and implemented a 2.5~mm $\times$ 2.5~mm CMOS image sensor in Cadence Virtuoso, integrating 3-transistor active pixel sensors (APS) with photodiodes, row shift registers, and column scanning logic.
+  \item Performed comprehensive DRC/LVS verification successfully.
+\end{itemize}
+
+\role{Password-Encrypted Digital Keypad}{Feb. 2025 -- May 2025}
+\begin{itemize}
+  \item Designed a 7-digit digital keypad system using Moore finite state machine architecture with one-hot encoding across 8 sequential passcode-validation states.
+  \item Built a hardware prototype with D flip-flops, logic gates, and a clock circuit, using pull-down resistors to resolve current leakage and LED indicators for user feedback.
+\end{itemize}
+
+\role{LED Music Sync Circuit}{Oct. 2024 -- Dec. 2024}
+\begin{itemize}
+  \item Designed a circuit to synchronize LED lights to audio frequencies using an electret microphone, built on a breadboard to unit test amplification and filtering stages.
+  \item Verified performance and optimized frequency response in LTSpice simulation.
+\end{itemize}
+
+\role{BRAF V600E Mutation Study}{Feb. 2024 -- Apr. 2024}
+\begin{itemize}
+  \item Analyzed BRAF V600E oncogene mutation impact on the MAP Kinase/ERK signaling pathway, producing cellular metrics with CellProfiler to evaluate its role in uncontrolled cell proliferation.
+  \item Developed heatmaps, line graphs, and statistical analyses in MATLAB comparing oncogenic vs.\ wild-type populations, showing significantly higher ERK activity, more cytoplasmic localization, and smaller nuclei in oncogenic populations.
+\end{itemize}
+
+% ================= TEACHING =================
+\section{Teaching Experience}
+
+\role{Physics Learning Assistant}{Jan. 2025 -- Dec. 2025}
+\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\begin{itemize}
+  \item Facilitated group discussions, problem-solving, and reinforcement of concepts for electricity and magnetism courses, collaborating with professors and teaching assistants to improve student learning.
+\end{itemize}
+
+\role{Teaching Assistant, First-Year Seminar: Design Cornerstone}{}
+\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
+
+\role{First-Year Mentor}{Aug. 2024 -- Dec. 2025}
+\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\begin{itemize}
+  \item Facilitated orientation activities and provided academic and campus resource support, hosting group events for incoming students.
+\end{itemize}
+
+% ================= TECHNICAL SKILLS =================
+\section{Technical Skills}
+\begin{itemize}
+  \item \textbf{Programming \& Data Analysis:} Python (NumPy, SciPy, pandas, scikit-learn), C/C++, MATLAB, LabVIEW, NI DAQ, SQL, Git, Minitab
+  \item \textbf{Circuits \& Embedded Systems:} KiCAD, LTSpice, Cadence Virtuoso, Verilog, Arduino
+  \item \textbf{CAD \& Prototyping:} SolidWorks (incl.\ FEA Simulation), Rapid Prototyping, 3D Printing (SLA/FDM), Machining (CNC, Lathe, Weld, Mill, Laser Cutting)
+\end{itemize}
+
+% ================= LEADERSHIP & SERVICE =================
+\section{Leadership \& Service}
+\begin{itemize}
+  \item \textbf{Professional Development Chair, AKDPhi (Asian-Interest Sorority):} Hosted resume workshops, networking events, and a headshot event.
+  \item \textbf{Fundraising Chair, AKDPhi:} Raised \$3{,}000 for breast cancer awareness through fundraising activities.
+  \item \textbf{Hopkins Community Connection Advocate} (Jan. 2024 -- May 2025): Assisted underserved patients and families at the Johns Hopkins Outpatient Center in overcoming barriers to social determinants of health.
+  \item \textbf{Believe in Art Volunteer:} Volunteered at the Keswick Multi-Care Center, spending time and crafting with older patients living with dementia.
+\end{itemize}
+
+\end{document}
