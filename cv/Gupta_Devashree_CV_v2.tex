@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,11pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage[left=1in, right=1in, bottom=1in, top=1in]{geometry}
+
+\definecolor{linkcol}{HTML}{14365B}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkcol,
+  urlcolor=linkcol,
+  pdftitle={Devashree Gupta - CV},
+  pdfauthor={Devashree Gupta}
+}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{4pt}
+
+% Org name on top (bold), role underneath in simple italic ("simple cursive")
+\newcommand{\jobhead}[3]{\textbf{#1}\hfill\textit{#2}\\ & \textit{#3}\\}
+\newcommand{\bull}[1]{\textbullet\ \parbox[t]{4.35in}{#1}\\}
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%% NAME OF APPLICANT %%%%%%%%%%%%%%%%%%%
+\noindent \LARGE{\textbf{Devashree Gupta}} \\
+\vspace{-2ex}
+\hrule
+\normalsize
+
+%%%%%%%%%%%%%%%%% CONTACT INFORMATION %%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{tabular}{l l}
+ Johns Hopkins University & \hspace{1in} \href{mailto:dgupta16@jh.edu}{dgupta16@jh.edu} \\
+ Dept. of Biomedical \& Electrical Engineering & \hspace{1in} \href{https://linkedin.com/in/devashreegupta}{linkedin.com/in/devashreegupta} \\
+ Baltimore, MD & \hspace{1in} Phone: 443-325-6025 \\
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+%%%%%%%%%%%%%%%%% MAIN BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{longtable}{@{} l p{4.55in} @{}}
+
+ \Large{Summary} & Fourth-year undergraduate studying Biomedical Engineering and Electrical Engineering, graduating May 2027. Interested in pursuing a career in medical devices, with a passion for neuroengineering and reproductive healthcare. Experience in sensor characterization, mixed-signal circuit design, embedded systems, and signal processing. \\
+  & \\
+
+ \Large{Education} & \textbf{Johns Hopkins University} \hfill Baltimore, MD \\
+  & B.S., Biomedical Engineering \& B.S., Electrical Engineering (Dual Degree) \hfill Aug.\ 2023 -- May 2027 (Expected) \\
+  & Cumulative GPA: 3.68 \\
+  & \textit{Relevant Coursework:} Control Systems, Nonlinear Dynamics, FPGA Programming, Microfabrication Lab, Biological Models and Simulations, Digital Signal Processing, VLSI, Advanced Electronics Design \\
+  & \\
+
+ \Large{Research} & \jobhead{Department of Biomedical Engineering, Johns Hopkins University}{July 2025 -- June 2026}{Research Assistant, Engineering}
+  & \bull{Led electrical design of mosquito traps for attraction, capture, powder marking, and release for surveillance of \textit{Aedes aegypti} mosquito populations in Brazil, Florida, and Costa Rica.}
+  & \bull{Designed a relay control PCB in KiCAD and developed an Arduino-based embedded system for automated nightly operation.}
+  & \bull{Isolated repeated field failures of the trap visual system to insufficient illumination and re-designed lighting to improve image quality.}
+  & \\
+
+  & \jobhead{Comillas Pontifical University}{May 2025 -- Aug.\ 2025}{Signal Processing Engineering Intern}
+  & \bull{Built an RF signal-processing and classification pipeline to detect and identify drones by their RF signatures.}
+  & \bull{Denoised raw RF captures with FFT-based filtering and wavelet transforms, improving SNR by 40\%.}
+  & \bull{Trained a convolutional neural network on the preprocessed signatures, reaching 88\% classification accuracy.}
+  & \\
+
+  & \jobhead{Brain Value Ltd.}{July 2024 -- Sept.\ 2024}{Data Science Intern}
+  & \bull{Collected, processed, and analyzed biomarker and clinical trial datasets using machine learning methods; prepared reports and visualizations to characterize biomarker relationships.}
+  & \bull{Processed clinical trial data, applying regression analysis, clustering, and predictive modeling using scikit-learn.}
+  & \\
+
+ \Large{Industry Experience} & \jobhead{Medtronic, Electrosurgical Generator Team}{June 2026 -- Aug.\ 2026}{Sensor Hardware Engineering Intern}
+  & \bull{Characterized the voltage and current sensing of a next-generation surgical generator across its full operating range to establish software calibration baselines, presented findings to 300+ Medtronic employees.}
+  & \bull{Automated the full characterization loop in Python, sweeping loads, PWM drive modes, and harmonics on a self-built bench mount.}
+  & \bull{Defined sensor gain and phase values from characterized data, delivering calibration baselines used in production firmware.}
+  & \bull{Root-caused discrepancies between external probe and onboard measurements to unaccounted parasitic capacitance of traces.}
+  & \\
+
+  & \jobhead{Johnson \& Johnson MedTech, ECMO Team}{Jan.\ 2026 -- June 2026}{Product Development Engineering Intern}
+  & \bull{Developed test methods for cavitation and air handling in blood pumps, supporting next-generation pump design and IDE submission to the FDA, presented projects and findings to 100+ employees.}
+  & \bull{Built end-to-end cavitation test protocol in accordance with ISO 18242, using a high-speed camera to detect cavitation formation at the impeller inlet, enabling repeatable compliance testing across builds.}
+  & \bull{Investigated a de-airing method for blood pumps to prevent gas embolism, identifying air localization and modeling design changes for optimal air removal, documented findings in the DHF.}
+  & \bull{Drafted and executed Test Method Validation protocols and tool specifications for critical components, applying Gage R\&R and capability analysis using Minitab and a Keyence IM.}
+  & \\
+
+ \Large{Projects} & \textbf{Airway Adaptor for Robotic Bronchoscopies} \\
+  & \bull{Led prototyping for a robotic bronchoscopy attachment to keep visualization of the lungs unobstructed during multi-tool endotracheal intubation, allowing interventional pulmonologists to detect pulmonary hemorrhage early.}
+  & \bull{Collaborated in an 8-person team, analyzed 500+ clinical studies, and shadowed pulmonologists in the operating room to derive user needs and design requirements.}
+  & \bull{Modeled the device assembly in SolidWorks and fabricated 20+ design iterations by resin 3D printing, successfully testing the device in a mock OR.}
+  & \\
+
+  & \textbf{Transperineal Biopsy Collection System} \\
+  & \bull{Led verification and validation of a new transperineal biopsy system to improve prostate cancer diagnosis.}
+  & \bull{Designed and built LVDT-instrumented fixtures to measure needle firing velocity, establishing the verification method for the firing mechanism's core design requirement.}
+  & \bull{Completed a working biopsy-gun prototype designed against FDA and ISO requirements and validated it through a progression of low- to high-fidelity test methods.}
+  & \\
+
+  & \textbf{CMOS Photosensor} \\
+  & \bull{Designed a 2.5~mm $\times$ 2.5~mm CMOS image sensor in Cadence Virtuoso from schematic to verified layout.}
+  & \bull{Integrated 3-transistor active pixel sensors with photodiodes, row shift registers, and column scan logic.}
+  & \bull{Verified the completed layout with full DRC and LVS checks.}
+  & \\
+
+  & \textbf{Password-Encrypted Digital Keypad} \\
+  & \bull{Built a passcode-locked keypad in discrete logic that unlocks only on a correct 7-digit entry sequence.}
+  & \bull{Architected a Moore finite state machine with one-hot encoding across 8 sequential passcode-validation states.}
+  & \bull{Prototyped in hardware with D flip-flops, logic gates, and a clock circuit, adding pull-down resistors to eliminate floating inputs and LED indicators for entry feedback.}
+  & \\
+
+  & \textbf{LED Music Sync Circuit} \\
+  & \bull{Designed an analog circuit that drives LEDs in sync with the frequency content of microphone audio, using three frequency bands.}
+  & \bull{Unit-tested the electret-microphone amplification and filtering stages on a breadboard, then verified performance and tuned the frequency response in LTSpice simulation.}
+  & \\
+
+  & \textbf{BRAF V600E Mutation Study} \\
+  & \bull{Investigated how the BRAF V600E mutation alters MAPK/ERK signaling to drive uncontrolled proliferation.}
+  & \bull{Extracted cellular metrics with CellProfiler, then compared oncogenic and wild-type populations in MATLAB using heatmaps, line graphs, and statistical analyses.}
+  & \bull{Found significantly higher ERK activity, more cytoplasmic localization, and smaller nuclei in oncogenic cells.}
+  & \\
+
+ \Large{Teaching} & \jobhead{Johns Hopkins University}{Jan.\ 2025 -- Dec.\ 2025}{Physics Learning Assistant}
+  & \bull{Reinforced electricity and magnetism concepts by leading group discussion and problem-solving sessions, in collaboration with professors and teaching assistants.}
+  & \\
+
+  & \jobhead{Johns Hopkins University}{Aug.\ 2024 -- Dec.\ 2025}{First-Year Mentor}
+  & \bull{Supported incoming students via orientation activities, group events, and academic and campus resources.}
+  & \\
+
+  & \jobhead{Johns Hopkins University}{}{Design Cornerstone Teaching Assistant}
+  & \bull{Mentored first-year engineering teams through hands-on design and prototyping projects, advising on multidisciplinary design processes, electronics, Arduino hardware/software, and 3D printing.}
+  & \bull{Helped troubleshoot student design challenges, provided feedback on prototypes and presentations, and collaborated with faculty to support course activities and maintain a safe prototyping environment.}
+  & \\
+
+ \Large{Technical Skills} & \textbf{Programming \& Data Analysis:} Python (NumPy, SciPy, pandas, scikit-learn), C/C++, MATLAB, LabVIEW, NI DAQ, SQL, Git, Minitab \\
+  & \textbf{Circuits \& Embedded Systems:} KiCAD, LTSpice, Cadence Virtuoso, Verilog, Arduino \\
+  & \textbf{CAD \& Prototyping:} SolidWorks (incl.\ FEA Simulation), Rapid Prototyping, 3D Printing (SLA/FDM), Machining (CNC, Lathe, Weld, Mill, Laser Cutting) \\
+  & \\
+
+ \Large{Leadership} & \textbf{AKDPhi} --- \textit{Professional Development Chair}: Hosted resume workshops, networking events, and a headshot event. \\
+ \Large{\& Service} & \textbf{AKDPhi} --- \textit{Fundraising Chair}: Raised \$3{,}000 for breast cancer awareness through fundraising activities. \\
+  & \textbf{Johns Hopkins Outpatient Center} --- \textit{Community Connection Advocate} (Jan.\ 2024 -- May 2025): Assisted underserved patients and families in overcoming barriers to social determinants of health. \\
+  & \textbf{Believe in Art} --- \textit{Volunteer}: Volunteered at the Keswick Multi-Care Center, spending time and crafting with older patients living with dementia. \\
+  & \\
+
+ \Large{Languages} & English, Hindi, French, Marathi, Spanish \\
+
+\end{longtable}
+
+\end{document}
