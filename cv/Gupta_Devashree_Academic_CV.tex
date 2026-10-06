@@ -57,13 +57,20 @@
 \usepackage{lastpage}
 
 % ---------- Custom commands ----------
-% Entry with title/org on one line, location/dates on the right
+% Education entry: title/org on one line, location/dates on the right
 \newcommand{\entry}[4]{%
   \noindent\textbf{#1} \hfill \textbf{#3}\\
   \noindent\textit{#2} \hfill \textit{#4}\\[-0.15em]
 }
 
-\newcommand{\role}[2]{%
+% Job entry: org name on top (bold), role underneath in simple italic ("cursive"), location kept
+\newcommand{\jobhead}[4]{%
+  \noindent\textbf{#1} \hfill \textit{#2}\\
+  \noindent\textit{#3} \hfill \textit{#4}\\[-0.15em]
+}
+
+% Project entry: title + dates only (no org/location)
+\newcommand{\projhead}[2]{%
   \noindent\textbf{#1} \hfill \textit{#2}\\[-0.15em]
 }
 
@@ -85,10 +92,10 @@
 {\color{hairline}\hrule height 0.8pt}
 \vspace{0.6em}
 
-% ================= RESEARCH INTERESTS =================
-\section*{Research Interests}
+% ================= SUMMARY =================
+\section*{Summary}
 \vspace{-0.3em}
-Sensor characterization and calibration; analog and mixed-signal circuit design; embedded systems; signal processing for biomedical and RF applications; verification and validation of medical devices.
+Fourth-year undergraduate studying Biomedical Engineering and Electrical Engineering, graduating May 2027. Interested in pursuing a career in medical devices, with a passion for neuroengineering and reproductive healthcare. Experience in sensor characterization, mixed-signal circuit design, embedded systems, and signal processing.
 
 % ================= EDUCATION =================
 \section{Education}
@@ -99,24 +106,21 @@ Cumulative GPA: 3.68\\
 % ================= RESEARCH EXPERIENCE =================
 \section{Research Experience}
 
-\role{Research Assistant, Engineering}{July 2025 -- June 2026}
-\textit{Department of Biomedical Engineering, Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\jobhead{Department of Biomedical Engineering, Johns Hopkins University}{July 2025 -- June 2026}{Research Assistant, Engineering}{Baltimore, MD}
 \begin{itemize}
-  \item Designed and built surveillance traps for mosquito attraction, capture, powder marking, and release.
+  \item Led electrical design of mosquito traps for attraction, capture, powder marking, and release for surveillance of \textit{Aedes aegypti} mosquito populations in Brazil, Florida, and Costa Rica.
   \item Designed a relay control PCB in KiCAD and developed an Arduino-based embedded system for automated nightly operation.
   \item Isolated repeated field failures of the trap visual system to insufficient illumination and re-designed lighting to improve image quality.
 \end{itemize}
 
-\role{Signal Processing Engineering Intern}{May 2025 -- Aug. 2025}
-\textit{Comillas Pontifical University} \hfill \textit{Madrid, Spain}
+\jobhead{Comillas Pontifical University}{May 2025 -- Aug. 2025}{Signal Processing Engineering Intern}{Madrid, Spain}
 \begin{itemize}
-  \item Denoised raw satellite drone data and designed wavelet transforms to preprocess drone RF signatures.
-  \item Developed a convolutional neural network achieving 88\% accuracy classifying radio frequency signatures from drones.
-  \item Applied FFT, wavelet transforms, and filtering to improve SNR by 40\%, enhancing detection reliability.
+  \item Built an RF signal-processing and classification pipeline to detect and identify drones by their RF signatures.
+  \item Denoised raw RF captures with FFT-based filtering and wavelet transforms, improving SNR by 40\%.
+  \item Trained a convolutional neural network on the preprocessed signatures, reaching 88\% classification accuracy.
 \end{itemize}
 
-\role{Data Science Intern}{July 2024 -- Sept. 2024}
-\textit{Brain Value Ltd.} \hfill \textit{Bangalore, India}
+\jobhead{Brain Value Ltd.}{July 2024 -- Sept. 2024}{Data Science Intern}{Bangalore, India}
 \begin{itemize}
   \item Collected, processed, and analyzed biomarker and clinical trial datasets using machine learning methods; prepared reports and visualizations to characterize biomarker relationships.
   \item Processed clinical trial data, applying regression analysis, clustering, and predictive modeling using scikit-learn.
@@ -125,83 +129,83 @@ Cumulative GPA: 3.68\\
 % ================= INDUSTRY EXPERIENCE =================
 \section{Industry Experience}
 
-\role{Sensor Hardware Engineering Intern}{June 2026 -- Aug. 2026}
-\textit{Medtronic} \hfill \textit{Lafayette, CO}
+\jobhead{Medtronic, Electrosurgical Generator Team}{June 2026 -- Aug. 2026}{Sensor Hardware Engineering Intern}{Lafayette, CO}
 \begin{itemize}
-  \item Characterized voltage and current sensing across the full operating range of a next-generation surgical generator.
+  \item Characterized the voltage and current sensing of a next-generation surgical generator across its full operating range to establish software calibration baselines, presented findings to 300+ Medtronic employees.
   \item Automated the full characterization loop in Python, sweeping loads, PWM drive modes, and harmonics on a self-built bench mount.
   \item Defined sensor gain and phase values from characterized data, delivering calibration baselines used in production firmware.
   \item Root-caused discrepancies between external probe and onboard measurements to unaccounted parasitic capacitance of traces.
 \end{itemize}
 
-\role{Product Development Engineering Intern}{Jan. 2026 -- June 2026}
-\textit{Johnson \& Johnson MedTech} \hfill \textit{Baltimore, MD}
+\jobhead{Johnson \& Johnson MedTech, ECMO Team}{Jan. 2026 -- June 2026}{Product Development Engineering Intern}{Baltimore, MD}
 \begin{itemize}
-  \item Built an end-to-end cavitation test protocol for blood pump performance, enabling repeatable compliance testing across builds.
-  \item Designed and built a high-speed camera setup to detect cavitation formation over the impeller inlet.
-  \item Investigated de-airing methods for blood pumps to prevent gas embolism, identifying air localization across operating conditions to support next-generation design.
-  \item Drafted and executed Test Method Validation protocols and feasibility studies of critical components supporting an IDE submission, utilizing Minitab and a Keyence IM.
-\end{itemize}
-
-% ================= PATENTS =================
-\section{Patents \& Intellectual Property}
-\role{Multi-Port Airway Adaptor --- Provisional Patent Filed}{Jan. 2025 -- Present}
-\begin{itemize}
-  \item Prototyping Lead for an airway adaptor enabling unobstructed visualization through multi-tool use during endotracheal intubation, supporting early detection of pulmonary hemorrhage by interventional pulmonologists.
-  \item Modeled the port assembly in SolidWorks, designing clamping and sealing mechanisms; fabricated iterations via resin 3D printing with cast sealing elements.
-  \item Conducted a needs assessment through review of 500+ clinical studies and operating-room shadowing of pulmonologists to analyze current device limitations.
+  \item Developed test methods for cavitation and air handling in blood pumps, supporting next-generation pump design and IDE submission to the FDA, presented projects and findings to 100+ employees.
+  \item Built end-to-end cavitation test protocol in accordance with ISO 18242, using a high-speed camera to detect cavitation formation at the impeller inlet, enabling repeatable compliance testing across builds.
+  \item Investigated a de-airing method for blood pumps to prevent gas embolism, identifying air localization and modeling design changes for optimal air removal, documented findings in the DHF.
+  \item Drafted and executed Test Method Validation protocols and tool specifications for critical components, applying Gage R\&R and capability analysis using Minitab and a Keyence IM.
 \end{itemize}
 
 % ================= PROJECTS =================
 \section{Independent Research \& Design Projects}
 
-\role{Verification \& Validation Lead --- Transperineal Biopsy Collection System}{Jan. 2024 -- Aug. 2024}
+\projhead{Airway Adaptor for Robotic Bronchoscopies}{Jan. 2025 -- Present}
 \begin{itemize}
-  \item Led the design of the V\&V plan for a new transperineal biopsy collection system to improve prostate cancer patient diagnosis.
-  \item Designed and built test fixtures to characterize needle firing velocity using LVDT sensors, establishing the verification method for the mechanism's core design requirement.
-  \item Completed a full working biopsy-gun prototype designed against FDA and ISO requirements; validated through a range of low-to-high fidelity testing methods.
+  \item Led prototyping for a robotic bronchoscopy attachment to keep visualization of the lungs unobstructed during multi-tool endotracheal intubation, allowing interventional pulmonologists to detect pulmonary hemorrhage early.
+  \item Collaborated in an 8-person team, analyzed 500+ clinical studies, and shadowed pulmonologists in the operating room to derive user needs and design requirements.
+  \item Modeled the device assembly in SolidWorks and fabricated 20+ design iterations by resin 3D printing, successfully testing the device in a mock OR.
 \end{itemize}
 
-\role{CMOS Photosensor}{Feb. 2025 -- May 2025}
+\projhead{Transperineal Biopsy Collection System}{Jan. 2024 -- Aug. 2024}
 \begin{itemize}
-  \item Developed and implemented a 2.5~mm $\times$ 2.5~mm CMOS image sensor in Cadence Virtuoso, integrating 3-transistor active pixel sensors (APS) with photodiodes, row shift registers, and column scanning logic.
-  \item Performed comprehensive DRC/LVS verification successfully.
+  \item Led verification and validation of a new transperineal biopsy system to improve prostate cancer diagnosis.
+  \item Designed and built LVDT-instrumented fixtures to measure needle firing velocity, establishing the verification method for the firing mechanism's core design requirement.
+  \item Completed a working biopsy-gun prototype designed against FDA and ISO requirements and validated it through a progression of low- to high-fidelity test methods.
 \end{itemize}
 
-\role{Password-Encrypted Digital Keypad}{Feb. 2025 -- May 2025}
+\projhead{CMOS Photosensor}{Feb. 2025 -- May 2025}
 \begin{itemize}
-  \item Designed a 7-digit digital keypad system using Moore finite state machine architecture with one-hot encoding across 8 sequential passcode-validation states.
-  \item Built a hardware prototype with D flip-flops, logic gates, and a clock circuit, using pull-down resistors to resolve current leakage and LED indicators for user feedback.
+  \item Designed a 2.5~mm $\times$ 2.5~mm CMOS image sensor in Cadence Virtuoso from schematic to verified layout.
+  \item Integrated 3-transistor active pixel sensors with photodiodes, row shift registers, and column scan logic.
+  \item Verified the completed layout with full DRC and LVS checks.
 \end{itemize}
 
-\role{LED Music Sync Circuit}{Oct. 2024 -- Dec. 2024}
+\projhead{Password-Encrypted Digital Keypad}{Feb. 2025 -- May 2025}
 \begin{itemize}
-  \item Designed a circuit to synchronize LED lights to audio frequencies using an electret microphone, built on a breadboard to unit test amplification and filtering stages.
-  \item Verified performance and optimized frequency response in LTSpice simulation.
+  \item Built a passcode-locked keypad in discrete logic that unlocks only on a correct 7-digit entry sequence.
+  \item Architected a Moore finite state machine with one-hot encoding across 8 sequential passcode-validation states.
+  \item Prototyped in hardware with D flip-flops, logic gates, and a clock circuit, adding pull-down resistors to eliminate floating inputs and LED indicators for entry feedback.
 \end{itemize}
 
-\role{BRAF V600E Mutation Study}{Feb. 2024 -- Apr. 2024}
+\projhead{LED Music Sync Circuit}{Oct. 2024 -- Dec. 2024}
 \begin{itemize}
-  \item Analyzed BRAF V600E oncogene mutation impact on the MAP Kinase/ERK signaling pathway, producing cellular metrics with CellProfiler to evaluate its role in uncontrolled cell proliferation.
-  \item Developed heatmaps, line graphs, and statistical analyses in MATLAB comparing oncogenic vs.\ wild-type populations, showing significantly higher ERK activity, more cytoplasmic localization, and smaller nuclei in oncogenic populations.
+  \item Designed an analog circuit that drives LEDs in sync with the frequency content of microphone audio, using three frequency bands.
+  \item Unit-tested the electret-microphone amplification and filtering stages on a breadboard, then verified performance and tuned the frequency response in LTSpice simulation.
+\end{itemize}
+
+\projhead{BRAF V600E Mutation Study}{Feb. 2024 -- Apr. 2024}
+\begin{itemize}
+  \item Investigated how the BRAF V600E mutation alters MAPK/ERK signaling to drive uncontrolled proliferation.
+  \item Extracted cellular metrics with CellProfiler, then compared oncogenic and wild-type populations in MATLAB using heatmaps, line graphs, and statistical analyses.
+  \item Found significantly higher ERK activity, more cytoplasmic localization, and smaller nuclei in oncogenic cells.
 \end{itemize}
 
 % ================= TEACHING =================
 \section{Teaching Experience}
 
-\role{Physics Learning Assistant}{Jan. 2025 -- Dec. 2025}
-\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\jobhead{Johns Hopkins University}{Jan. 2025 -- Dec. 2025}{Physics Learning Assistant}{Baltimore, MD}
 \begin{itemize}
-  \item Facilitated group discussions, problem-solving, and reinforcement of concepts for electricity and magnetism courses, collaborating with professors and teaching assistants to improve student learning.
+  \item Reinforced electricity and magnetism concepts by leading group discussion and problem-solving sessions, in collaboration with professors and teaching assistants.
 \end{itemize}
 
-\role{Teaching Assistant, First-Year Seminar: Design Cornerstone}{}
-\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
-
-\role{First-Year Mentor}{Aug. 2024 -- Dec. 2025}
-\textit{Johns Hopkins University} \hfill \textit{Baltimore, MD}
+\jobhead{Johns Hopkins University}{Aug. 2024 -- Dec. 2025}{First-Year Mentor}{Baltimore, MD}
 \begin{itemize}
-  \item Facilitated orientation activities and provided academic and campus resource support, hosting group events for incoming students.
+  \item Supported incoming students via orientation activities, group events, and academic and campus resources.
+\end{itemize}
+
+\jobhead{Johns Hopkins University}{}{Design Cornerstone Teaching Assistant}{Baltimore, MD}
+\begin{itemize}
+  \item Mentored first-year engineering teams through hands-on design and prototyping projects, advising on multidisciplinary design processes, electronics, Arduino hardware/software, and 3D printing.
+  \item Helped troubleshoot student design challenges, provided feedback on prototypes and presentations, and collaborated with faculty to support course activities and maintain a safe prototyping environment.
 \end{itemize}
 
 % ================= TECHNICAL SKILLS =================
@@ -220,5 +224,9 @@ Cumulative GPA: 3.68\\
   \item \textbf{Hopkins Community Connection Advocate} (Jan. 2024 -- May 2025): Assisted underserved patients and families at the Johns Hopkins Outpatient Center in overcoming barriers to social determinants of health.
   \item \textbf{Believe in Art Volunteer:} Volunteered at the Keswick Multi-Care Center, spending time and crafting with older patients living with dementia.
 \end{itemize}
+
+% ================= LANGUAGES =================
+\section{Languages}
+English, Hindi, French, Marathi, Spanish
 
 \end{document}
