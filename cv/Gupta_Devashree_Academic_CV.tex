@@ -41,11 +41,13 @@
 % ---------- Lists ----------
 \setlist[itemize]{
   leftmargin=1.1em,
-  itemsep=1pt,
+  itemsep=0pt,
   parsep=0pt,
-  topsep=2pt,
+  topsep=0pt,
+  partopsep=0pt,
   label=\textbullet
 }
+\newcommand{\tightlist}{\vspace{-9pt}}
 
 % ---------- Header / Footer ----------
 \pagestyle{fancy}
@@ -107,27 +109,28 @@ Cumulative GPA: 3.68\\
 \section{Capstone Design Projects}
 
 \projhead{Airway Adaptor for Robotic Bronchoscopies}{Jan. 2025 -- Present}
-\textit{Faculty Mentor: Dr. Elizabeth Logsdon \ $\vert$ \ Clinical Mentor: Dr. Andrew Lerner, Sibley Memorial Hospital}
+\textit{Faculty Mentor: Dr. Elizabeth Logsdon \ $\vert$ \ Clinical Mentor: Dr. Andrew Lerner, Sibley Memorial Hospital}\\[-0.15em]
 \begin{itemize}
   \item Led prototyping for a robotic bronchoscopy attachment to keep visualization of the lungs unobstructed during multi-tool endotracheal intubation, allowing interventional pulmonologists to detect pulmonary hemorrhage early.
   \item Collaborated in an 8-person team, analyzed 500+ clinical studies, and shadowed pulmonologists in the operating room to derive user needs and design requirements.
   \item Modeled the device assembly in SolidWorks and fabricated 20+ design iterations by resin 3D printing, successfully testing the device in a mock OR.
-  \item Presented at Johns Hopkins Design Day to 1{,}000+ attendees. \href{https://github.com/Devashree1701/eportfolio/blob/master/cv/posters/Airway_Adaptor_Poster.png}{Poster}
+  \item Presented at Johns Hopkins Design Day to 1{,}000+ attendees. \href{https://github.com/Devashree1701/eportfolio/blob/master/cv/posters/Airway_Adaptor_Poster.png}{\textbf{Poster}} \textcolor{hairline}{\footnotesize(github.com/Devashree1701/eportfolio $\rightarrow$ cv/posters)}
 \end{itemize}
 
 \projhead{Transperineal Biopsy Collection System}{Jan. 2024 -- Aug. 2024}
-\textit{Faculty Mentor: Dr. Nick Durr \ $\vert$ \ Industry Sponsor: Mendaera Inc.}
+\textit{Faculty Mentor: Dr. Nick Durr \ $\vert$ \ Industry Sponsor: Mendaera Inc.}\\[-0.15em]
 \begin{itemize}
   \item Led verification and validation of a new transperineal biopsy system to improve prostate cancer diagnosis.
   \item Designed and built LVDT-instrumented fixtures to measure needle firing velocity, establishing the verification method for the firing mechanism's core design requirement.
   \item Completed a working biopsy-gun prototype designed against FDA and ISO requirements and validated it through a progression of low- to high-fidelity test methods.
-  \item Presented at Johns Hopkins Design Day to 1{,}000+ attendees. \href{https://github.com/Devashree1701/eportfolio/blob/master/cv/posters/Transperineal_Biopsy_Poster.pdf}{Poster}
+  \item Presented at Johns Hopkins Design Day to 1{,}000+ attendees. \href{https://github.com/Devashree1701/eportfolio/blob/master/cv/posters/Transperineal_Biopsy_Poster.pdf}{\textbf{Poster}} \textcolor{hairline}{\footnotesize(github.com/Devashree1701/eportfolio $\rightarrow$ cv/posters)}
 \end{itemize}
 
 % ================= RESEARCH EXPERIENCE =================
 \section{Research Experience}
 
 \jobhead{Department of Biomedical Engineering, Johns Hopkins University}{July 2025 -- June 2026}{Research Assistant, Engineering}{Baltimore, MD}
+\tightlist
 \begin{itemize}
   \item Led electrical design of mosquito traps for attraction, capture, powder marking, and release for surveillance of \textit{Aedes aegypti} mosquito populations in Brazil, Florida, and Costa Rica.
   \item Designed a relay control PCB in KiCAD and developed an Arduino-based embedded system for automated nightly operation.
@@ -135,6 +138,7 @@ Cumulative GPA: 3.68\\
 \end{itemize}
 
 \jobhead{Comillas Pontifical University}{May 2025 -- Aug. 2025}{Signal Processing Engineering Intern}{Madrid, Spain}
+\tightlist
 \begin{itemize}
   \item Built an RF signal-processing and classification pipeline to detect and identify drones by their RF signatures.
   \item Denoised raw RF captures with FFT-based filtering and wavelet transforms, improving SNR by 40\%.
@@ -142,6 +146,7 @@ Cumulative GPA: 3.68\\
 \end{itemize}
 
 \jobhead{Brain Value Ltd.}{July 2024 -- Sept. 2024}{Data Science Intern}{Bangalore, India}
+\tightlist
 \begin{itemize}
   \item Collected, processed, and analyzed biomarker and clinical trial datasets using machine learning methods; prepared reports and visualizations to characterize biomarker relationships.
   \item Processed clinical trial data, applying regression analysis, clustering, and predictive modeling using scikit-learn.
@@ -151,6 +156,7 @@ Cumulative GPA: 3.68\\
 \section{Industry Experience}
 
 \jobhead{Medtronic, Electrosurgical Generator Team}{June 2026 -- Aug. 2026}{Sensor Hardware Engineering Intern}{Lafayette, CO}
+\tightlist
 \begin{itemize}
   \item Characterized the voltage and current sensing of a next-generation surgical generator across its full operating range to establish software calibration baselines, presented findings to 300+ Medtronic employees.
   \item Automated the full characterization loop in Python, sweeping loads, PWM drive modes, and harmonics on a self-built bench mount.
@@ -159,6 +165,7 @@ Cumulative GPA: 3.68\\
 \end{itemize}
 
 \jobhead{Johnson \& Johnson MedTech, ECMO Team}{Jan. 2026 -- June 2026}{Product Development Engineering Intern}{Baltimore, MD}
+\tightlist
 \begin{itemize}
   \item Developed test methods for cavitation and air handling in blood pumps, supporting next-generation pump design and IDE submission to the FDA, presented projects and findings to 100+ employees.
   \item Built end-to-end cavitation test protocol in accordance with ISO 18242, using a high-speed camera to detect cavitation formation at the impeller inlet, enabling repeatable compliance testing across builds.
@@ -170,6 +177,7 @@ Cumulative GPA: 3.68\\
 \section{Other Independent Projects}
 
 \projhead{CMOS Photosensor}{Feb. 2025 -- May 2025}
+\tightlist
 \begin{itemize}
   \item Designed a 2.5~mm $\times$ 2.5~mm CMOS image sensor in Cadence Virtuoso from schematic to verified layout.
   \item Integrated 3-transistor active pixel sensors with photodiodes, row shift registers, and column scan logic.
@@ -177,6 +185,7 @@ Cumulative GPA: 3.68\\
 \end{itemize}
 
 \projhead{Password-Encrypted Digital Keypad}{Feb. 2025 -- May 2025}
+\tightlist
 \begin{itemize}
   \item Built a passcode-locked keypad in discrete logic that unlocks only on a correct 7-digit entry sequence.
   \item Architected a Moore finite state machine with one-hot encoding across 8 sequential passcode-validation states.
@@ -184,12 +193,14 @@ Cumulative GPA: 3.68\\
 \end{itemize}
 
 \projhead{LED Music Sync Circuit}{Oct. 2024 -- Dec. 2024}
+\tightlist
 \begin{itemize}
   \item Designed an analog circuit that drives LEDs in sync with the frequency content of microphone audio, using three frequency bands.
   \item Unit-tested the electret-microphone amplification and filtering stages on a breadboard, then verified performance and tuned the frequency response in LTSpice simulation.
 \end{itemize}
 
 \projhead{BRAF V600E Mutation Study}{Feb. 2024 -- Apr. 2024}
+\tightlist
 \begin{itemize}
   \item Investigated how the BRAF V600E mutation alters MAPK/ERK signaling to drive uncontrolled proliferation.
   \item Extracted cellular metrics with CellProfiler, then compared oncogenic and wild-type populations in MATLAB using heatmaps, line graphs, and statistical analyses.
@@ -200,16 +211,19 @@ Cumulative GPA: 3.68\\
 \section{Teaching Experience}
 
 \jobhead{Johns Hopkins University}{Jan. 2025 -- Dec. 2025}{Physics Learning Assistant}{Baltimore, MD}
+\tightlist
 \begin{itemize}
   \item Reinforced electricity and magnetism concepts by leading group discussion and problem-solving sessions, in collaboration with professors and teaching assistants.
 \end{itemize}
 
 \jobhead{Johns Hopkins University}{Aug. 2024 -- Dec. 2025}{First-Year Mentor}{Baltimore, MD}
+\tightlist
 \begin{itemize}
   \item Supported incoming students via orientation activities, group events, and academic and campus resources.
 \end{itemize}
 
 \jobhead{Johns Hopkins University}{}{Design Cornerstone Teaching Assistant}{Baltimore, MD}
+\tightlist
 \begin{itemize}
   \item Mentored first-year engineering teams through hands-on design and prototyping projects, advising on multidisciplinary design processes, electronics, Arduino hardware/software, and 3D printing.
   \item Helped troubleshoot student design challenges, provided feedback on prototypes and presentations, and collaborated with faculty to support course activities and maintain a safe prototyping environment.
